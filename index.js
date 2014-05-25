@@ -94,7 +94,7 @@ co(function* coInitialization() {
   schedule.scheduleJob(config.cron, function scheduledJob() {
     co(function* coScheduledJob() {
       stats.schedule.latest = (new Date()).toJSON();
-      stats.schedule.count++;      
+      stats.schedule.count++;
       logger.info('Running scheduled job', stats.schedule.latest);
       yield repositoryUpdate(config);
     })();
@@ -118,6 +118,7 @@ webhook.get(config.hook, function* getHook(next) {
 
 // Hook
 webhook.post(config.hook, bodyParser(), function* postHook() {
+  // TODO: add SECRET support
   this.status = 200;
   stats.hook.latest = (new Date()).toJSON();
   stats.hook.count++;

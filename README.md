@@ -23,3 +23,7 @@ App that listens to github webhooks and runs a job on a cron to maintain a git r
 ### How to use
 
 Run `npm start`, go to the github repo's settings, then go to `Webhooks & Services` and `Add webhook`
+
+### Hook endpoint
+
+POSTing to the `HOOK` endpoint will cause it to try and update the repository. Doing a GET will show you some stats.
